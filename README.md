@@ -29,10 +29,10 @@
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠒⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠉⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀
         TTTTTT  HH  HH  EEEEEE          EEEEEE  EEEEEE   GGGGG
-          TT    HH  HH  EE              EE      EE      GG  
+          TT    HH  HH  EE              EE      EE      GG   
           TT    HHHHHH  EEEEEE          EEEEEE  EEEEEE  G  GGG  
-          TT    HH  HH  EE              EE      EE      G   GG
-          TT    HH  HH  EEEEEE          EEEEEE  EEEEEE   GGG
+          TT    HH  HH  EE              EE      EE      GG  GG
+          TT    HH  HH  EEEEEE          EEEEEE  EEEEEE   GGG G
 
     PPPPPP  IIIIII  PPPPPP  EEEEEE  LL      IIIIII  NN  NN  EEEEEE
     PP  PP    II    PP  PP  EE      LL        II    NNN NN  EE
@@ -40,5 +40,8 @@
     PP        II    PP      EE      LL        II    NN NNN  EE
     PP      IIIIII  PP      EEEEEE  LLLLLL  IIIIII  NN  NN  EEEEEE
 ```
-
+# Description
 This is intended to be an easy-to-use EEG processing pipeline that shields the user from needing to tamper with code.
+
+# Flow
+preparation.m -> initialization.m -> preprocessing.m -> processing.m -> presentation.m
