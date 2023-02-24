@@ -125,8 +125,16 @@ For more information, see: https://eeglab.org/tutorials/05_Preprocess/rereferenc
 
 #### Filtering
 
-There are a couple of reasons why and a couple of differen ways that we use filtering in EEG. One is that, often times, there can be very lowe frequency drift that is in the low delta range. So using a High Pass Filter (HPS) allows us to cut out that drift and get the signal to be more centered. Most of the information that we are interested in is above 0.5 Hz, so we typically will filter out information below 0.5 Hz. On some cases, there may be a lot of drift or other low frequency artifacts, so it may be required to go up to 1 Hz or even 2 Hz for extreme cases. Note that, when increasing into that frequency range, important data starts to be lost.
+There are a couple of reasons why and a couple of differen ways that we use filtering in EEG. One is that, often times, there can be very lowe frequency drift that is in the low delta range. So using a High Pass Filter (HPS) allows us to cut out that drift and get the signal to be more centered. Most of the information that we are interested in is above 0.5 Hz, so we typically will filter out information below 0.5 Hz. On some cases, there may be a lot of drift or other low frequency artifacts, so it may be required to go up to 1 Hz or even 2 Hz for extreme cases. Note that, when increasing into that frequency range, important data in the delta range starts to be lost.
 
-[Still working on the rest]
+Another reason and way we filter EEG data is to remove line noise that often shows up around the 60 Hz range. The most simple way of filtering to remove line noise is to apply a notch filter, or in other worse a filter that cuts out only a sliver of the freequency band. This is quite common but it is also not the most effective way to remove line noise as it applies a filter that decreases the amplitude of the information in the 60 Hz band regardless of if it is line noise or if it is brain information. Other methods to remove line noise include Independant Component Analysis (ICA) or Artifact Subspace Reconstruction (ASR). ICA will be covered below but for more information on ASR, check out https://www.frontiersin.org/articles/10.3389/fnhum.2019.00141/full.
 
 For more information, see: https://eeglab.org/tutorials/05_Preprocess/Filtering.html
+
+### Artifact Removal
+
+After filtering, gross artifact will be removed. There are a few methods for doing so, but the most effective way is to just cut out gross artifacts from the time series. Methods for automatically recognizing artifact such as muscle or eye blink include statistical stratagies that cosider the typical range of the data comapred to the data points where the data values are outside of the normal range. If you consider how large in amplitude an eye blink is compared to the rest of the data then it would seem to make sense that if you, say, said anything about 5 standard deviations should be clasified as artifact and therefore, the area including and around said artifact should just be removed, that may do the trick. However, this doesn't really take into account that fact that there may be very large amplitude slow wave activity that may also be cut out. The deviation cutoff that is used may also not be universally applicable and may need some tuning to get the right combination of effective artifact removal and rentention of real brain data.
+
+Another method for artifact removal is ICA, however, again, that will be covered in a lower section.
+
+[Still working on the rest]
